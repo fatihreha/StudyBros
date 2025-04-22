@@ -67,7 +67,7 @@
     color: white;
 }
 
-/* Tema Geçiş Animasyonu */
+/* Theme Transition Animation */
 body, html {
     transition: background-color 0.3s ease, color 0.3s ease;
     width: 100%;
@@ -95,7 +95,7 @@ header, footer {
     color: var(--text-color);
 }
 
-/* Tema geçiş butonu stilleri */
+/* Theme toggle button styles */
 .theme-toggle {
     position: fixed;
     bottom: 20px;

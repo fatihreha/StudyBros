@@ -18,13 +18,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/windows/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/static/images/favicon/windows/favicon-96x96.png">
     
-    <!-- Android İkonları -->
+    <!-- Android Icons -->
     <link rel="icon" type="image/png" sizes="36x36" href="/static/images/favicon/android/android-icon-36x36.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/static/images/favicon/android/android-icon-48x48.png">
     <link rel="icon" type="image/png" sizes="72x72" href="/static/images/favicon/android/android-icon-72x72.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/static/images/favicon/android/android-icon-96x96.png">
     
-    <!-- iOS İkonları -->
+    <!-- iOS Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/static/images/favicon/ios/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/images/favicon/ios/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/static/images/favicon/ios/apple-icon-72x72.png">
@@ -34,7 +34,7 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/static/manifest.json">
     <link rel="apple-touch-icon" href="/static/images/icon-192.png">
-    <!-- Bu satırı tamamen kaldırın: {% block styles %}{% endblock %} -->
+    
 </head>
 <body {% if session.user_id %}data-user-logged-in="true"{% endif %}>
     <header>
@@ -76,7 +76,7 @@
     <script src="/static/js/main.js"></script>
     <script src="/static/js/theme.js"></script>
     {% block scripts %}{% endblock %}
-    <!-- Tema değiştirme butonu -->
+    <!-- Theme toggle button -->
     <button id="theme-toggle" class="theme-toggle">☀️</button>
 </body>
 </html>
