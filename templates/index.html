@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}StudyBros - Smart Study Tracking System{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <h1>StudyBros</h1>
+    <p>Track your study time, set goals, and increase your productivity with your personal study assistant.</p>
+    <div class="hero-buttons">
+        <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+        <a href="#features" class="btn btn-secondary">Features</a>
+    </div>
+</section>
+
+<section id="features" class="features-section">
+    <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Pomodoro Timer</h3>
+        <p>Focus with the Pomodoro technique - 25 minutes of work, 5 minutes of break. Maximize your productivity.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Study Tracking</h3>
+        <p>Track your daily and weekly study hours with beautiful visualizations.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Goal Setting</h3>
+        <p>Set weekly study goals and track your progress.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Note Taking</h3>
+        <p>Take and organize notes during your study sessions.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Achievement Badges</h3>
+        <p>Earn badges as you reach your goals and keep your motivation high.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile Friendly</h3>
+        <p>Works on any device - desktop, tablet, or mobile. Offline support included.</p>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Improve Your Study Habits</h2>
+    <p>Study more efficiently, manage your time better, and reach your academic goals faster with StudyBros.</p>
+    <a href="{{ url_for('register') }}" class="btn btn-primary">Sign Up Free</a>
+</section>
+{% endblock %}

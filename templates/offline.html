@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Offline - StudyBuddy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="offline-message">
+        <h1>You're Offline</h1>
+        <p>It seems you're not connected to the internet right now.</p>
+        <p>Don't worry! StudyBuddy still works in offline mode. You can:</p>
+        <ul>
+            <li>Use the Pomodoro timer</li>
+            <li>Create and edit notes</li>
+            <li>View your previously loaded statistics</li>
+        </ul>
+        <p>Your data will be synchronized when you're back online.</p>
+        <a href="/" class="btn btn-primary">Try Again</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - StudyBros{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>Welcome, {{ session.username }}!</h1>
+    
+    <div class="dashboard-grid">
+        <!-- Pomodoro Timer Section -->
+        <section class="dashboard-card" id="pomodoro-section">
+            <h2>Pomodoro Timer</h2>
+            <div class="timer-display">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <div class="timer-controls">
+                <button id="start-timer" class="btn btn-primary">Start</button>
+                <button id="pause-timer" class="btn btn-secondary" disabled>Pause</button>
+                <button id="reset-timer" class="btn btn-secondary">Reset</button>
+            </div>
+            <div class="timer-mode">
+                <button id="focus-mode" class="btn btn-mode active">Focus (25m)</button>
+                <button id="break-mode" class="btn btn-mode">Break (5m)</button>
+            </div>
+        </section>
+        
+        <!-- Study Stats Section -->
+        <section class="dashboard-card" id="stats-section">
+            <h2>Study Statistics</h2>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <h3>Today</h3>
+                    <p id="today-hours">0 hours</p>
+                </div>
+                <div class="stat-item">
+                    <h3>This Week</h3>
+                    <p id="week-hours">0 hours</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total</h3>
+                    <p id="total-hours">0 hours</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="weekly-chart"></canvas>
+            </div>
+        </section>
+        
+        <!-- Goals Section -->
+        <section class="dashboard-card" id="goals-section">
+            <h2>Study Goals</h2>
+            <div id="current-goal">
+                <h3>Current Goal</h3>
+                <div id="goal-display">
+                    <p>No active goal set</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="goal-progress"></div>
+                </div>
+            </div>
+            <div id="set-goal">
+                <h3>Set New Goal</h3>
+                <form id="goal-form">
+                    <div class="form-group">
+                        <label for="weekly-hours">Weekly Study Hours</label>
+                        <input type="number" id="weekly-hours" min="1" max="168" step="0.5" value="10">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Set Goal</button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Notes Section -->
+        <section class="dashboard-card" id="notes-section">
+            <h2>Study Notes</h2>
+            <div class="notes-container">
+                <div id="notes-list">
+                    <!-- Notes will be loaded here -->
+                    <p class="empty-state">No notes yet. Create your first note!</p>
+                </div>
+                <div id="note-editor">
+                    <input type="text" id="note-title" placeholder="Note Title">
+                    <textarea id="note-content" placeholder="Write your notes here..."></textarea>
+                    <div class="note-actions">
+                        <button id="save-note" class="btn btn-primary">Save Note</button>
+                        <button id="clear-note" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievements Section -->
+        <section class="dashboard-card" id="achievements-section">
+            <h2>Achievements</h2>
+            <div class="badges-container">
+                <!-- Badges will be loaded here -->
+                <p class="empty-state">Complete study sessions to earn badges!</p>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/pomodoro.js') }}"></script>
+<script src="{{ url_for('static', filename='js/stats.js') }}"></script>
+<script src="{{ url_for('static', filename='js/goals.js') }}"></script>
+<script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+<script src="{{ url_for('static', filename='js/badges.js') }}"></script>
+{% endblock %}
+<body data-user-logged-in="{{ 'true' if 'user_id' in session else 'false' }}">

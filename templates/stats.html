@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Study Statistics - StudyBuddy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="stats-header">
+        <h1>Study Statistics</h1>
+        <div class="stats-filters">
+            <select id="time-range">
+                <option value="week">Last 7 Days</option>
+                <option value="month">Last 30 Days</option>
+                <option value="year">Last 365 Days</option>
+                <option value="custom">Custom Range</option>
+            </select>
+            
+            <div id="custom-date-range" style="display: none;">
+                <input type="date" id="start-date">
+                <input type="date" id="end-date">
+                <button id="apply-date-range" class="btn btn-sm btn-primary">Apply</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stats-card">
+            <h2>Summary</h2>
+            <div class="stats-summary-grid">
+                <div class="summary-item">
+                    <h3>Total Study Time</h3>
+                    <p id="total-study-time">0 hours</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Pomodoro Count</h3>
+                    <p id="total-pomodoros">0</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Daily Average</h3>
+                    <p id="daily-average">0 saat</p>
+                </div>
+                <div class="summary-item">
+                    <h3>En Uzun Çalışma</h3>
+                    <p id="longest-session">0 saat</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Günlük Dağılım Grafiği -->
+        <div class="stats-card">
+            <h2>Günlük Çalışma Dağılımı</h2>
+            <div class="chart-container">
+                <canvas id="daily-chart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Saatlik Dağılım Grafiği -->
+        <div class="stats-card">
+            <h2>Saatlik Çalışma Dağılımı</h2>
+            <div class="chart-container">
+                <canvas id="hourly-chart"></canvas>
+            </div>
+            <div class="chart-info">
+                <p>En verimli çalışma saatiniz: <span id="most-productive-hour">-</span></p>
+            </div>
+        </div>
+        
+        <!-- Haftalık Trend Grafiği -->
+        <div class="stats-card">
+            <h2>Haftalık Trend</h2>
+            <div class="chart-container">
+                <canvas id="weekly-trend-chart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Hedef Karşılaştırma -->
+        <div class="stats-card">
+            <h2>Hedef Karşılaştırma</h2>
+            <div id="goal-comparison">
+                <div class="goal-progress">
+                    <h3>Haftalık Hedef</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="weekly-goal-progress"></div>
+                    </div>
+                    <p><span id="weekly-goal-percentage">0%</span> tamamlandı</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Çalışma Günleri Isı Haritası -->
+        <div class="stats-card full-width">
+            <h2>Çalışma Günleri</h2>
+            <div class="heatmap-container" id="study-heatmap"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3"></script>
+<script src="/static/js/advanced-stats.js"></script>
+{% endblock %}
