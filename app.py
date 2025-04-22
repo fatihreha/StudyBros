@@ -122,11 +122,22 @@ def logout():
 
 @app.route('/dashboard')
 def dashboard():
+    # Print session information for debugging
+    print("Session information:", session)
+    
     if 'user_id' not in session:
         flash('Please log in to access the dashboard')
         return redirect(url_for('login'))
     
-    return render_template('dashboard.html')
+    # Get user information from database
+    user = User.query.get(session['user_id'])
+    if not user:
+        # Clear session if user not found
+        session.clear()
+        flash('User not found. Please login again.')
+        return redirect(url_for('login'))
+    
+    return render_template('dashboard.html', user=user)
 
 @app.route('/offline')
 def offline():
