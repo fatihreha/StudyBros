@@ -1,5 +1,5 @@
 # StudyBros - Smart Study Tracking System 
-Video Demo:
+Video Demo: https://www.youtube.com/watch?v=QnPZs_kGT24
 Description:
 StudyBros is a comprehensive web application designed to help students and professionals optimize their study habits through intelligent tracking and motivation systems. Built with Flask and modern web technologies, it offers a robust solution for managing study sessions, tracking progress, and maintaining motivation through gamification elements.
 
